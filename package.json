@@ -1,0 +1,15 @@
+{
+  "name": "taskmaster-test-project",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "test:unit": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0",
+    "@playwright/test": "^1.40.0",
+    "jsdom": "^23.0.0"
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>TaskMaster - Lista zadań</title>
+    <style>
+        .completed { text-decoration: line-through; color: gray; }
+        .error { color: red; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <h1 id="app-title">TaskMaster</h1>
+    
+    <div>
+        <input type="text" id="task-input" placeholder="Wpisz zadanie...">
+        <select id="priority-select">
+            <option value="normal">Normalny</option>
+            <option value="high">Pilny</option>
+        </select>
+        <button id="add-btn">Dodaj</button>
+        <button id="save-btn">Zapisz na serwerze</button>
+    </div>
+    <div id="error-msg" class="error"></div>
+
+    <h3>Statystyki: <span id="stats">0 zadań</span></h3>
+
+    <ul id="task-list"></ul>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
