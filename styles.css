@@ -265,11 +265,13 @@ h3 {
     box-shadow: var(--shadow-sm);
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     transition: all 0.3s ease;
     animation: taskAppear 0.4s ease-out;
     position: relative;
     overflow: hidden;
+    font-size: 0.95rem;
+    font-weight: 400;
 }
 
 @keyframes taskAppear {
@@ -319,36 +321,76 @@ h3 {
     color: var(--text-muted);
 }
 
-#task-list li button {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+/* Custom Checkbox Styling */
+#task-list li input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    background: var(--bg-secondary);
+    margin: 0;
+}
+
+#task-list li input[type="checkbox"]:hover {
+    border-color: var(--accent-primary);
+}
+
+#task-list li input[type="checkbox"]:checked {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+#task-list li input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Task text container - grows to fill space */
+#task-list li span {
+    flex: 1;
+    word-break: break-word;
+}
+
+/* Delete Button (X) */
+#task-list li button.delete-btn {
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
     margin-left: auto;
 }
 
-#task-list li button:first-of-type {
-    background: var(--accent-light);
-    color: var(--accent-primary);
-}
-
-#task-list li button:first-of-type:hover {
-    background: var(--accent-primary);
-    color: white;
-}
-
-#task-list li button.delete-btn {
+#task-list li button.delete-btn:hover {
     background: #fef2f2;
     color: var(--error);
+    transform: rotate(90deg);
 }
 
-#task-list li button.delete-btn:hover {
-    background: var(--error);
-    color: white;
-}
-
-/* Priority badges */
-#task-list li {
-    font-size: 0.95rem;
-    font-weight: 400;
+#task-list li button.delete-btn:active {
+    transform: rotate(90deg) scale(0.9);
 }
 
 /* Responsive Design */
@@ -370,11 +412,7 @@ h3 {
     
     #task-list li {
         padding: 1rem;
-        flex-wrap: wrap;
-    }
-    
-    #task-list li button {
-        margin-left: 0;
+        gap: 0.75rem;
     }
 }
 

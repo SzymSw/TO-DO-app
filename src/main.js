@@ -17,25 +17,33 @@ function render() {
     
     app.tasks.forEach(task => {
         const li = document.createElement('li');
-        li.textContent = `${task.title} [${task.priority}] `;
         if (task.completed) li.classList.add('completed');
 
-        const toggleBtn = document.createElement('button');
-        toggleBtn.textContent = task.completed ? 'Cofnij' : 'Zrób';
-        toggleBtn.onclick = () => {
+        // Checkbox
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.completed;
+        checkbox.onclick = () => {
             app.toggleTask(task.id);
             render();
         };
 
+        // Task text container
+        const taskText = document.createElement('span');
+        taskText.textContent = `${task.title} [${task.priority}]`;
+        if (task.completed) taskText.classList.add('completed');
+
+        // Delete button (X)
         const delBtn = document.createElement('button');
-        delBtn.textContent = 'Usuń';
-        delBtn.className = 'delete-btn'; // klasa dla testów E2E
+        delBtn.textContent = '×';
+        delBtn.className = 'delete-btn';
         delBtn.onclick = () => {
             app.removeTask(task.id);
             render();
         };
 
-        li.appendChild(toggleBtn);
+        li.appendChild(checkbox);
+        li.appendChild(taskText);
         li.appendChild(delBtn);
         list.appendChild(li);
     });
