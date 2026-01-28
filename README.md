@@ -12,3 +12,7 @@ npm run test:unit
 ```
 npm run test:e2e
 ```
+4. Run the app:
+```
+npm run dev
+```
