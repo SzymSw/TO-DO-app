@@ -16,3 +16,14 @@ npm run test:e2e
 ```
 npm run dev
 ```
+
+To run on AWS:
+
+1. Install AWS library
+```
+npm install @aws-sdk/client-dynamodb @aws-sdk/lib-dynamodb
+```
+2. Run the app:
+```
+npx http-server
+```
